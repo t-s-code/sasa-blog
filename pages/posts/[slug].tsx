@@ -73,9 +73,11 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
-  const paths = allPosts.map((post) => ({
-    params: { slug: post ? post.slug : "" },
-  }));
+  const paths = allPosts
+    .filter((post) => post?.slug !== undefined && post.slug !== "")
+    .map((post) => ({
+      params: { slug: post ? post.slug : "" },
+    }));
 
   return {
     paths,
