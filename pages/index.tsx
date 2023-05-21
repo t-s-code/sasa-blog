@@ -22,7 +22,7 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
 
       <main className="container w-full mt-16">
         <h1 className="text-5xl font-medium text-center mb-16">
-          Notion Blog🚀
+          Notion Blog
         </h1>
         {fourPosts.map((post, i) => (
           <div key={i} className="mx-4">
