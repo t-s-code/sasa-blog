@@ -27,20 +27,25 @@ const Navbar = () => {
   });
 
   return (
-    <nav className="relative w-screen mt-8 px-8">
-      <div
-        ref={logoLinkRef}
-        onMouseOver={() => setIsLogoOpen(true)}
-        onMouseLeave={() => setIsLogoOpen(false)}
-        onClick={toggleMenuOpen}
-        className="cursor-pointer"
-      >
-        <Logo isOpen={isLogoOpen || isMenuOpen} />
+    <nav className="relative w-screen mt-8 px-8 flex justify-between">
+      <div>
+        <div
+          ref={logoLinkRef}
+          onMouseOver={() => setIsLogoOpen(true)}
+          onMouseLeave={() => setIsLogoOpen(false)}
+          onClick={toggleMenuOpen}
+          className="cursor-pointer"
+        >
+          <Logo isOpen={isLogoOpen || isMenuOpen} />
+        </div>
+        <Menu isOpen={isMenuOpen} />
       </div>
-      <Menu isOpen={isMenuOpen} />
-      <div className="absolute top-0 left-0 right-0 text-center">
+      <div>
         <SquareButton title="Technology" subTitle="テクノロジー" />
+        <SquareButton className="ml-14" title="Design" subTitle="デザイン" />
+        <SquareButton className="ml-14" title="Society" subTitle="社会性" />
       </div>
+      <div className="w-48"/>
     </nav>
   );
 };

@@ -29,9 +29,9 @@ const Menu = ({ className, isOpen }: MenuProps) => {
         duration: MENU_MOVE_DURATION,
       }}
     >
-      <Link href={pagesPath.articles.$url()}>Articles</Link>
-      <Link href={pagesPath.projects.$url()}>Projects</Link>
-      <Link href={pagesPath.about.$url()}>About</Link>
+      <Link className="hover:text-gray-200" href={pagesPath.articles.$url()}>Articles</Link>
+      <Link className="mt-1 hover:text-gray-200" href={pagesPath.projects.$url()}>Projects</Link>
+      <Link className="mt-1 hover:text-gray-200" href={pagesPath.about.$url()}>About</Link>
     </motion.div>
   );
 };

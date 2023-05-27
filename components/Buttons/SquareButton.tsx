@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 
 interface SquareButton {
   className?: string
@@ -8,9 +8,9 @@ interface SquareButton {
 
 const SquareButton = ({ className, title: contentEn, subTitle: contentJa }: SquareButton) => {
   return (
-    <button className={'shadow-md rounded px-16 py-1 ' + className}>
-      <div>{contentEn}</div>
-      <div>{contentJa}</div>
+    <button id='SquareButton' className={'rounded px-16 py-1 hover:bg-gray-50 transition-colors  ' + className}>
+      <div className='text-gray-300 text-xl'>{contentEn}</div>
+      <div className='text-gray-200 text-xs'>{contentJa}</div>
     </button>
   )
 }
