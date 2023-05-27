@@ -1,4 +1,10 @@
 export const pagesPath = {
+  "about": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/about' as const, hash: url?.hash })
+  },
+  "articles": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/articles' as const, hash: url?.hash })
+  },
   "posts": {
     _slug: (slug: string | number) => ({
       $url: (url?: { hash?: string }) => ({ pathname: '/posts/[slug]' as const, query: { slug }, hash: url?.hash })
@@ -17,6 +23,9 @@ export const pagesPath = {
         }
       })
     }
+  },
+  "projects": {
+    $url: (url?: { hash?: string }) => ({ pathname: '/projects' as const, hash: url?.hash })
   },
   $url: (url?: { hash?: string }) => ({ pathname: '/' as const, hash: url?.hash })
 }
