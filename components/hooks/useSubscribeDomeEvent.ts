@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 interface UseSubscribeDomeEventProps {
-  target: Node | null;
-  events: string[];
-  listener: EventListenerOrEventListenerObject;
+  target: Node | null
+  events: string[]
+  listener: EventListenerOrEventListenerObject
 }
 
 export default function useSubscribeDomeEvent({
@@ -12,12 +12,12 @@ export default function useSubscribeDomeEvent({
   listener,
 }: UseSubscribeDomeEventProps) {
   useEffect(() => {
-    if (!target) return;
+    if (!target) return
 
-    events.forEach((event) => target.addEventListener(event, listener), false);
+    events.forEach((event) => target.addEventListener(event, listener), false)
 
     return () => {
-      events.forEach((event) => target.removeEventListener(event, listener));
-    };
-  }, [target, events, listener]);
+      events.forEach((event) => target.removeEventListener(event, listener))
+    }
+  }, [target, events, listener])
 }
