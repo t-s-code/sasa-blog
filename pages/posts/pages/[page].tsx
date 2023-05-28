@@ -32,6 +32,8 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: BlogPageListProps)
                 tags={post.tags}
                 slug={post.slug}
                 isPaginationPage={true}
+                genre={post.genre}
+                thumbnail={post.thumbnail}
               />
             </div>
           ))}
