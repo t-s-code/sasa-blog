@@ -13,19 +13,20 @@ interface HomeProps {
 
 export default function Home({ fourPosts, allTags }: HomeProps) {
   return (
-    <div className="container h-full w-full mx-auto">
+    <div className="h-full w-full mx-auto">
       <Head>
-        <title>Tech Blog</title>
+        <title>Sasa Blog</title>
         <meta name="description" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container w-full mt-16">
-        <h1 className="text-5xl font-medium text-center mb-16">
-          Notion Blog
+      <main className="w-full mt-16 px-80">
+        <h1 className="text-5xl font-medium">
+          Articles
+          <div className="w-1/3 mt-3 border-b-2"/>
         </h1>
         {fourPosts.map((post, i) => (
-          <div key={i} className="mx-4">
+          <div key={i} className="mt-14">
             <SinglePost
               title={post.title}
               description={post.description}
@@ -33,6 +34,8 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               tags={post.tags}
               slug={post.slug}
               isPaginationPage={false}
+              genre={post.genre}
+              thumbnail={post.thumbnail}
             />
           </div>
         ))}
@@ -48,6 +51,8 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const fourPosts = await getPostsForTopPage(NUMBER_OF_POSTS_PER_PAGE);
   const allTags = await getAllTags()
+
+  console.log(fourPosts)
 
   return {
     props: {

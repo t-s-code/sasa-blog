@@ -7,10 +7,10 @@ interface SinglePostProps extends Omit<MyPost, "id"> {
 }
 
 const SinglePost = (props: SinglePostProps) => {
-  const { title, description, date, tags, slug, isPaginationPage } = props;
+  const { title, description, date, tags, slug, genre, thumbnail, isPaginationPage } = props;
 
   return isPaginationPage ? (
-    <section className="bg-gray-400 mb-8 mx-auto rounded-md p-5 shadow-none hover:shadow-xl hover:-translate-y-1 transition-all duration-150">
+    <section className="">
       <div className="lg:flex items-center">
         <Link href={`/posts/${slug}`}>
           <h2 className="text-2xl font-medium mb-2">{title || "No Title"}</h2>
@@ -28,7 +28,7 @@ const SinglePost = (props: SinglePostProps) => {
       <p>{description || "No Description"}</p>
     </section>
   ) : (
-    <section className="lg:w-1/2 bg-gray-400 mb-8 mx-auto rounded-md p-5 shadow-none hover:shadow-xl hover:-translate-y-1 transition-all duration-150">
+    <section className="">
       <div className="flex items-center gap-3">
         <Link href={`/posts/${slug}`}>
           <h2 className="text-2xl font-medium mb-2">{title || "No Title"}</h2>

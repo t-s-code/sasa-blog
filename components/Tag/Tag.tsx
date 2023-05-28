@@ -8,7 +8,7 @@ interface TagProps {
 const Tag = ({ tags }: TagProps) => {
   return (
     <div className='mx-4'>
-      <section className='lg:w-1/2 mb-8 mx-auto bg-gray-400 rounded-md p-5 shadow-none hover:shadow-xl hover:-translate-y-1 transition-all duration-150'>
+      <section className='l'>
         <div className='font-medium mb-4'>タグ検索</div>
         <div className='flex flex-wrap gap-5'>
           {tags.map((tag, i) => (

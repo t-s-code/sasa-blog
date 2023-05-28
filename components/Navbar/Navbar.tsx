@@ -34,7 +34,7 @@ const Navbar = () => {
           onMouseOver={() => setIsLogoOpen(true)}
           onMouseLeave={() => setIsLogoOpen(false)}
           onClick={toggleMenuOpen}
-          className="cursor-pointer"
+          className="cursor-pointer w-[42px]"
         >
           <Logo isOpen={isLogoOpen || isMenuOpen} />
         </div>

@@ -16,6 +16,8 @@ export type MyPost = {
   date: string;
   slug: string;
   tags: string[];
+  genre: string,
+  thumbnail: string
 };
 
 const notion = new Client({
@@ -58,13 +60,19 @@ const getPageMetaData = (post: Post): MyPost | undefined => {
     return allTags;
   };
 
+  const getThumbnailUrl = (post: Post) => {
+    if (!("cover" in post)) return
+    return post.cover?.type === "file" ? post.cover.file.url : post.cover?.type === "external" ? post.cover.external.url : ""
+  }
+
   if (
     "properties" in post &&
     post.properties.name.type === "title" &&
     post.properties.description.type === "rich_text" &&
     post.properties.date.type === "date" &&
     post.properties.slug.type === "rich_text" &&
-    post.properties.tags.type === "multi_select"
+    post.properties.tags.type === "multi_select" &&
+    post.properties.genre.type === "select"
   ) {
     return {
       id: post.id,
@@ -73,6 +81,8 @@ const getPageMetaData = (post: Post): MyPost | undefined => {
       date: post.properties.date.date?.start || "",
       slug: post.properties.slug.rich_text[0]?.plain_text || "",
       tags: getTags(post.properties.tags.multi_select),
+      genre: post.properties.genre.select?.name || "",
+      thumbnail: getThumbnailUrl(post) || "",
     };
   } else {
     return undefined;
