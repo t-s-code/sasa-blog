@@ -35,6 +35,22 @@ module.exports = {
         red: {
           500: '#DF0000',
         },
+        green: {
+          500: '#00910E',
+        },
+        purple: {
+          500: '#A259FF',
+        },
+        sky: {
+          500: '#1ABCFE',
+        },
+        pink: {
+          500: '#FF49B6',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter'],
+        gothic: ['Zen Kaku Gothic New'],
       },
     },
   },

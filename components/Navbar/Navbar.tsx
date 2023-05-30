@@ -40,10 +40,10 @@ const Navbar = () => {
         </div>
         <Menu isOpen={isMenuOpen} />
       </div>
-      <div>
-        <SquareButton title='Technology' subTitle='テクノロジー' />
-        <SquareButton className='ml-14' title='Design' subTitle='デザイン' />
-        <SquareButton className='ml-14' title='Society' subTitle='社会性' />
+      <div className='py-8'>
+        <SquareButton className=' mr-14' title='Technology' subTitle='テクノロジー' />
+        <SquareButton className='mr-14' title='Design' subTitle='デザイン' />
+        <SquareButton title='Society' subTitle='社会性' />
       </div>
       <div className='w-48' />
     </nav>

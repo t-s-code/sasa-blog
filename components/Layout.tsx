@@ -3,7 +3,7 @@ import Navbar from './Navbar/Navbar'
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <div>
+    <div className='font-gothic'>
       <Navbar />
       {children}
     </div>

@@ -20,13 +20,13 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full mt-16 px-80'>
-        <h1 className='text-5xl font-medium'>
+      <main className='w-full px-56 mt-8'>
+        <h1 className='text-5xl font-medium text-gray-500'>
           Articles
-          <div className='w-1/3 mt-3 border-b-2' />
+          <div className='w-96 mt-3 border-b-2' />
         </h1>
         {fourPosts.map((post, i) => (
-          <div key={i} className='mt-14'>
+          <div key={i} className='mt-14 min-w-min'>
             <SinglePost
               title={post.title}
               description={post.description}
@@ -39,12 +39,11 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
             />
           </div>
         ))}
-        <Link
-          href='posts/pages/1'
-          className='mb-6 lg:w-1/2 mx-auto rounded-md px-5 block text-right'
-        >
-          ...もっと見る
-        </Link>
+        <div className='mt-12 mb-6 w-full flex justify-end'>
+          <Link href='posts/pages/1' className='text-gray-500 hover:opacity-80 hover:underline'>
+            ...もっと見る
+          </Link>
+        </div>
         <Tag tags={allTags} />
       </main>
     </div>
