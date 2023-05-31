@@ -20,6 +20,10 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
+      {/* <main className='w-full px-56 mt-8 bg-gray-500'>
+        about
+      </main> */}
+
       <main className='w-full px-56 mt-8'>
         <h1 className='text-5xl font-medium text-gray-500'>
           Articles
@@ -33,7 +37,6 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               date={post.date}
               tags={post.tags}
               slug={post.slug}
-              isPaginationPage={false}
               genre={post.genre}
               thumbnail={post.thumbnail}
             />

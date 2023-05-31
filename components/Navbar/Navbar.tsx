@@ -27,7 +27,7 @@ const Navbar = () => {
   })
 
   return (
-    <nav className='relative w-screen mt-8 px-8 flex justify-between'>
+    <nav className='relative w-full mt-8 px-8 flex justify-between'>
       <div>
         <div
           ref={logoLinkRef}

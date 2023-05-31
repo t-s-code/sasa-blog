@@ -4,30 +4,12 @@ import Link from 'next/link'
 import React from 'react'
 import { makeTagComponent } from '../Tag/Tag'
 
-interface SinglePostProps extends Omit<MyPost, 'id'> {
-  isPaginationPage: boolean
-}
+interface SinglePostProps extends Omit<MyPost, 'id'> {}
 
 const SinglePost = (props: SinglePostProps) => {
-  const { title, description, date, tags, slug, genre, thumbnail, isPaginationPage } = props
+  const { title, description, date, tags, slug, genre, thumbnail } = props
 
-  return isPaginationPage ? (
-    <section className=''>
-      <div className='lg:flex items-center'>
-        <Link href={`/posts/${slug}`}>
-          <h2 className='text-2xl font-medium mb-2'>{title || 'No Title'}</h2>
-        </Link>
-        <div className='mr-2'>{date || 'No Date'}</div>
-        {tags.length > 0 &&
-          tags.map((tag, i) => (
-            <Link key={i} href={`posts/tags/${tag}/pages/1`}>
-              <span className='text-white bg-black rounded-xl px-2 mr-2'>{tag}</span>
-            </Link>
-          ))}
-      </div>
-      <p>{description || 'No Description'}</p>
-    </section>
-  ) : (
+  return (
     <section className='flex justify-center'>
       <Link
         href={`/posts/${slug}`}

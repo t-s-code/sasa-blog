@@ -26,7 +26,10 @@ const Menu = ({ className, isOpen }: MenuProps) => {
         duration: MENU_MOVE_DURATION,
       }}
     >
-      <Link className='hover:text-gray-200' href={pagesPath.articles.$url()}>
+      <Link className='hover:text-gray-200' href={pagesPath.$url()}>
+        Top
+      </Link>
+      <Link className='mt-1 hover:text-gray-200' href={pagesPath.articles.$url()}>
         Articles
       </Link>
       <Link className='mt-1 hover:text-gray-200' href={pagesPath.projects.$url()}>
