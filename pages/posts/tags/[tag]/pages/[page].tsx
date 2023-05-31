@@ -15,7 +15,7 @@ import { useRouter } from 'next/router'
 interface BlogTagPageListProps {
   posts: MyPost[]
   numberOfPagesByTag: number
-  tag: string
+  tag: TagType
   allTags: TagType[]
 }
 
