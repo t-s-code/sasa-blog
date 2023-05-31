@@ -15,10 +15,27 @@ export type MyPost = {
   description: string
   date: string
   slug: string
-  tags: string[]
+  tags: Array<TagType>
   genre: string
   thumbnail: string
 }
+
+export type TagType = {
+  name: string
+  color: TagColor
+}
+
+type TagColor =
+  | 'default'
+  | 'gray'
+  | 'brown'
+  | 'orange'
+  | 'yellow'
+  | 'green'
+  | 'blue'
+  | 'purple'
+  | 'pink'
+  | 'red'
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
@@ -54,7 +71,10 @@ export const getAllPosts = async () => {
 const getPageMetaData = (post: Post): MyPost | undefined => {
   const getTags = (tags: Array<SelectPropertyResponse>) => {
     const allTags = tags.map((tag) => {
-      return tag.name
+      return {
+        name: tag.name,
+        color: tag.color,
+      }
     })
 
     return allTags
@@ -145,7 +165,7 @@ export const getNumberOfPages = async () => {
 
 export const getPostsByTagAndPage = async (tagName: string, page: number) => {
   const allPosts = await getAllPosts()
-  const posts = allPosts.filter((post) => post?.tags.find((tag: string) => tag === tagName))
+  const posts = allPosts.filter((post) => post?.tags.find((tag) => tag.name === tagName))
 
   const startIndex = (page - 1) * NUMBER_OF_POSTS_PER_PAGE
   const endIndex = startIndex + NUMBER_OF_POSTS_PER_PAGE
@@ -155,7 +175,7 @@ export const getPostsByTagAndPage = async (tagName: string, page: number) => {
 
 export const getNumberOfPagesByTag = async (tagName: string) => {
   const allPosts = await getAllPosts()
-  const posts = allPosts.filter((post) => post?.tags.find((tag: string) => tag === tagName))
+  const posts = allPosts.filter((post) => post?.tags.find((tag) => tag.name === tagName))
 
   return (
     Math.floor(posts.length / NUMBER_OF_POSTS_PER_PAGE) +
@@ -166,9 +186,8 @@ export const getNumberOfPagesByTag = async (tagName: string) => {
 export const getAllTags = async () => {
   const allPosts = await getAllPosts()
 
-  const allTagsDuplicationList = allPosts.flatMap((post) => post?.tags)
-  const set = new Set(allTagsDuplicationList)
-  const allTagsList = Array.from(set)
+  const allTagsDuplicatedList = allPosts.flatMap((post) => post?.tags)
+  const allTags = Array.from(new Map(allTagsDuplicatedList.map((tag) => [tag?.name, tag])).values())
 
-  return allTagsList
+  return allTags
 }

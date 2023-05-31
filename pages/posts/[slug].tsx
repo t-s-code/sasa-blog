@@ -1,4 +1,4 @@
-import { getAllPosts, getSinglePost } from '@/lib/notionAPI'
+import { TagType, getAllPosts, getSinglePost } from '@/lib/notionAPI'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import React from 'react'
@@ -15,13 +15,13 @@ const Post = ({ post }: SlugPageProps) => {
       <div className='border-b-2 w-1/3 mt-1 border-black'></div>
       <span className='text-gray-500'>Posted at {post.metadata?.date}</span>
       <br />
-      {post.metadata?.tags.map((tag: string, i) => (
+      {post.metadata?.tags.map((tag: TagType, i) => (
         <p
           key={i}
           className='text-white bg-black rounded-xl font-medium mt-2 mr-2 px-2 inline-block'
         >
-          <Link key={i} href={`/posts/tags/${tag}/pages/1`}>
-            {tag}
+          <Link key={i} href={`/posts/tags/${tag.name}/pages/1`}>
+            {tag.name}
           </Link>
         </p>
       ))}

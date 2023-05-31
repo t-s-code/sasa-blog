@@ -47,6 +47,9 @@ module.exports = {
         pink: {
           500: '#FF49B6',
         },
+        brown: {
+          500: '#6D4100',
+        },
       },
       fontFamily: {
         sans: ['Inter'],

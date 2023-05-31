@@ -1,14 +1,14 @@
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
 import { NUMBER_OF_POSTS_PER_PAGE } from '@/constants/constants'
-import { MyPost, getAllTags, getPostsForTopPage } from '@/lib/notionAPI'
+import { MyPost, TagType, getAllTags, getPostsForTopPage } from '@/lib/notionAPI'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 
 interface HomeProps {
   fourPosts: MyPost[]
-  allTags: string[]
+  allTags: TagType[]
 }
 
 export default function ArticleIndex({ fourPosts, allTags }: HomeProps) {

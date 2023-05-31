@@ -35,7 +35,7 @@ const SinglePost = (props: SinglePostProps) => {
           <div>
             {tags.length > 0 &&
               tags.map((tag, i) => (
-                <Link key={i} href={`posts/tags/${tag}/pages/1`} className='mr-3'>
+                <Link key={i} href={`/posts/tags/${tag.name}/pages/1`} className='mr-3'>
                   {makeTagComponent(i, tag)}
                 </Link>
               ))}

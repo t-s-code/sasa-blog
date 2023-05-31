@@ -1,7 +1,7 @@
 import Pagination from '@/components/Pagination/Pagination'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
-import { MyPost, getAllTags, getNumberOfPages, getPostsByPage } from '@/lib/notionAPI'
+import { MyPost, TagType, getAllTags, getNumberOfPages, getPostsByPage } from '@/lib/notionAPI'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 interface BlogPageListProps {
   postsByPage: MyPost[]
   numberOfPage: number
-  allTags: string[]
+  allTags: TagType[]
 }
 
 const BlogPageList = ({ postsByPage, numberOfPage, allTags }: BlogPageListProps) => {

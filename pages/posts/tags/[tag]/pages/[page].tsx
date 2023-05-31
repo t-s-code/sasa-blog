@@ -1,7 +1,13 @@
 import Pagination from '@/components/Pagination/Pagination'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
-import { MyPost, getAllTags, getNumberOfPagesByTag, getPostsByTagAndPage } from '@/lib/notionAPI'
+import {
+  MyPost,
+  TagType,
+  getAllTags,
+  getNumberOfPagesByTag,
+  getPostsByTagAndPage,
+} from '@/lib/notionAPI'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -10,7 +16,7 @@ interface BlogTagPageListProps {
   posts: MyPost[]
   numberOfPagesByTag: number
   tag: string
-  allTags: string[]
+  allTags: TagType[]
 }
 
 const BlogTagPageList = ({ numberOfPagesByTag, posts, tag, allTags }: BlogTagPageListProps) => {
@@ -81,9 +87,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   await Promise.all(
     allTags.map((tag) => {
       if (!tag) return
-      return getNumberOfPagesByTag(tag).then((numberOfPagesByTag: number) => {
+      return getNumberOfPagesByTag(tag.name).then((numberOfPagesByTag: number) => {
         for (let i = 0; i <= numberOfPagesByTag; i++) {
-          params.push({ params: { tag: tag, page: i.toString() } })
+          params.push({ params: { tag: tag.name, page: i.toString() } })
         }
       })
     }),
