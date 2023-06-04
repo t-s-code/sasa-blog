@@ -8,6 +8,7 @@ import ReactLogo from '@/components/Icons/ReactLogo'
 import TSLogo from '@/components/Icons/TSLogo'
 import TailwindCSSLogo from '@/components/Icons/TailwindCSSLogo'
 import TwitterLogo from '@/components/Icons/TwitterLogo'
+import { NAVBAR_GLOBAL_HEIGHT } from '@/components/Navbar/Navbar'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
 import {
@@ -45,8 +46,11 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full px-56 mt-8'>
-        <section>
+      <main className='w-full px-56 pt-8'>
+        <section
+          className='min-h-min'
+          style={{ minHeight: `calc(100vh - ${NAVBAR_GLOBAL_HEIGHT})` }}
+        >
           <h1 className='text-5xl font-medium text-gray-500'>
             About
             <div className='w-96 mt-3 border-b-2' />
@@ -108,7 +112,7 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
           </div>
         </section>
 
-        <section className='mt-20'>
+        <section>
           <h1 className='text-5xl font-medium text-gray-500'>
             Articles
             <div className='w-96 mt-3 border-b-2' />
@@ -126,7 +130,7 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               />
             </div>
           ))}
-          <div className='mt-12 mb-6 w-full flex justify-end'>
+          <div className='mt-28 mb-6 w-full flex justify-end'>
             <Link href='posts/pages/1' className='text-gray-500 hover:opacity-80 hover:underline'>
               ...もっと見る
             </Link>

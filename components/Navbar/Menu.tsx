@@ -32,12 +32,9 @@ const Menu = ({ className, isOpen }: MenuProps) => {
       <Link className='mt-1 hover:text-gray-200' href={pagesPath.articles.$url()}>
         Articles
       </Link>
-      <Link className='mt-1 hover:text-gray-200' href={pagesPath.projects.$url()}>
+      {/* <Link className='mt-1 hover:text-gray-200' href={pagesPath.projects.$url()}>
         Projects
-      </Link>
-      <Link className='mt-1 hover:text-gray-200' href={pagesPath.about.$url()}>
-        About
-      </Link>
+      </Link> */}
     </motion.div>
   )
 }

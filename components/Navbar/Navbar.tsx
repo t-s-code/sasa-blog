@@ -5,6 +5,8 @@ import useSubscribeDomeEvent from '../hooks/useSubscribeDomeEvent'
 import Menu from './Menu'
 import SquareButton from '../Buttons/SquareButton'
 
+export const NAVBAR_GLOBAL_HEIGHT = '116px'
+
 const Navbar = () => {
   const [isLogoOpen, setIsLogoOpen] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,7 +29,10 @@ const Navbar = () => {
   })
 
   return (
-    <nav className='relative w-full mt-8 px-8 flex justify-between'>
+    <nav
+      className='relative w-full mt-8 px-8 flex justify-between'
+      style={{ height: NAVBAR_GLOBAL_HEIGHT }}
+    >
       <div>
         <div
           ref={logoLinkRef}
