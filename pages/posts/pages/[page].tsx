@@ -1,3 +1,4 @@
+import tw from 'twin.macro'
 import Pagination from '@/components/Pagination/Pagination'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
@@ -17,20 +18,20 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: BlogPageListProps)
   const currentPage = router.query.page as number | undefined
 
   return (
-    <div className='h-full w-full mx-auto'>
+    <div tw='h-full w-full mx-auto'>
       <Head>
         <title>Sasa Blog</title>
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full px-56 mt-8'>
-        <h1 className='text-5xl font-medium text-gray-500'>
+      <main tw='w-full px-56 mt-8'>
+        <h1 tw='text-5xl font-medium text-gray-500'>
           Articles
-          <div className='w-96 mt-3 border-b-2' />
+          <div tw='w-96 mt-3 border-b-2' />
         </h1>
         {postsByPage.map((post, i) => (
-          <div key={i} className='mt-14 min-w-min'>
+          <div key={i} tw='mt-14 min-w-min'>
             <SinglePost
               title={post.title}
               description={post.description}
@@ -42,7 +43,7 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: BlogPageListProps)
             />
           </div>
         ))}
-        <div className='mt-16'>
+        <div tw='mt-16'>
           <Pagination numberOfPage={numberOfPage} currentPage={currentPage} />
         </div>
         <Tag tags={allTags} />

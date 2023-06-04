@@ -1,3 +1,4 @@
+import tw from 'twin.macro'
 import Link from 'next/link'
 import React, { useRef, useState } from 'react'
 import Logo from '../Icons/Logo'
@@ -31,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className='relative w-full mt-8 px-8 flex justify-between'
+      tw='relative w-full mt-8 px-8 flex justify-between'
       style={{ height: NAVBAR_GLOBAL_HEIGHT }}
     >
       <div>
@@ -40,24 +41,24 @@ const Navbar = () => {
           onMouseOver={() => setIsLogoOpen(true)}
           onMouseLeave={() => setIsLogoOpen(false)}
           onClick={toggleMenuOpen}
-          className='cursor-pointer w-14 h-10 flex items-center justify-center'
+          tw='cursor-pointer w-14 h-10 flex items-center justify-center'
         >
           <Logo isOpen={isLogoOpen || isMenuOpen} />
         </div>
         <Menu isOpen={isMenuOpen} />
       </div>
-      <div className='py-8'>
+      <div tw='py-8'>
         <Link href={pagesPath.articles.technology.pages._page('1').$url()}>
-          <SquareButton className=' mr-14' title='Technology' subTitle='テクノロジー' />
+          <SquareButton tw=' mr-14' title='Technology' subTitle='テクノロジー' />
         </Link>
         <Link href={pagesPath.articles.design.pages._page('1').$url()}>
-          <SquareButton className='mr-14' title='Design' subTitle='デザイン' />
+          <SquareButton tw='mr-14' title='Design' subTitle='デザイン' />
         </Link>
         <Link href={pagesPath.articles.society.pages._page('1').$url()}>
           <SquareButton title='Society' subTitle='社会性' />
         </Link>
       </div>
-      <div className='w-48' />
+      <div tw='w-48' />
     </nav>
   )
 }

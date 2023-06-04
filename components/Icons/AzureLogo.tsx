@@ -22,8 +22,8 @@ const AzureLogo = ({ className }: AzureLogoProps) => {
           y2='103.76182%'
           id='Azure-linearGradient-1'
         >
-          <stop stop-color='#114A8B' offset='0%'></stop>
-          <stop stop-color='#0669BC' offset='100%'></stop>
+          <stop stopColor='#114A8B' offset='0%'></stop>
+          <stop stopColor='#0669BC' offset='100%'></stop>
         </linearGradient>
         <linearGradient
           x1='59.7188447%'
@@ -32,11 +32,11 @@ const AzureLogo = ({ className }: AzureLogoProps) => {
           y2='54.8636556%'
           id='Azure-linearGradient-2'
         >
-          <stop stop-color='#000000' stop-opacity='0.3' offset='0%'></stop>
-          <stop stop-color='#000000' stop-opacity='0.2' offset='7.1%'></stop>
-          <stop stop-color='#000000' stop-opacity='0.1' offset='32.1%'></stop>
-          <stop stop-color='#000000' stop-opacity='0.05' offset='62.3%'></stop>
-          <stop stop-color='#000000' stop-opacity='0' offset='100%'></stop>
+          <stop stopColor='#000000' stopOpacity='0.3' offset='0%'></stop>
+          <stop stopColor='#000000' stopOpacity='0.2' offset='7.1%'></stop>
+          <stop stopColor='#000000' stopOpacity='0.1' offset='32.1%'></stop>
+          <stop stopColor='#000000' stopOpacity='0.05' offset='62.3%'></stop>
+          <stop stopColor='#000000' stopOpacity='0' offset='100%'></stop>
         </linearGradient>
         <linearGradient
           x1='37.2789399%'
@@ -45,8 +45,8 @@ const AzureLogo = ({ className }: AzureLogoProps) => {
           y2='99.9794963%'
           id='Azure-linearGradient-3'
         >
-          <stop stop-color='#3CCBF4' offset='0%'></stop>
-          <stop stop-color='#2892DF' offset='100%'></stop>
+          <stop stopColor='#3CCBF4' offset='0%'></stop>
+          <stop stopColor='#2892DF' offset='100%'></stop>
         </linearGradient>
       </defs>
       <g>

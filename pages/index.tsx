@@ -1,3 +1,4 @@
+import tw from 'twin.macro'
 import AzureLogo from '@/components/Icons/AzureLogo'
 import CSS3Logo from '@/components/Icons/CSS3Logo'
 import GitHubLogo from '@/components/Icons/GitHubLog'
@@ -10,7 +11,6 @@ import TailwindCSSLogo from '@/components/Icons/TailwindCSSLogo'
 import TwitterLogo from '@/components/Icons/TwitterLogo'
 import { NAVBAR_GLOBAL_HEIGHT } from '@/components/Navbar/Navbar'
 import SinglePost from '@/components/Post/SinglePost'
-import Tag from '@/components/Tag/Tag'
 import {
   AZURE_TOOLTIP,
   CSS3_TOOLTIP,
@@ -39,40 +39,37 @@ const GITHUB_URL = 'https://github.com/t-s-code'
 
 export default function Home({ fourPosts, allTags }: HomeProps) {
   return (
-    <div className='h-full w-full mx-auto'>
+    <div tw='h-full w-full mx-auto'>
       <Head>
         <title>Sasa Blog</title>
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full px-56 pt-8'>
-        <section
-          className='min-h-min'
-          style={{ minHeight: `calc(100vh - ${NAVBAR_GLOBAL_HEIGHT})` }}
-        >
-          <h1 className='text-5xl font-medium text-gray-500'>
+      <main tw='w-full px-56 pt-8'>
+        <section tw='min-h-min' style={{ minHeight: `calc(100vh - ${NAVBAR_GLOBAL_HEIGHT})` }}>
+          <h1 tw='text-5xl font-medium text-gray-500'>
             About
-            <div className='w-96 mt-3 border-b-2' />
+            <div tw='w-96 mt-3 border-b-2' />
           </h1>
-          <div className='flex items-center justify-center min-w-min h-80 mt-32 gap-28'>
-            <div className='relative min-w-[288px] w-72 h-72 rounded-full overflow-hidden'>
-              <Image src={IMAGE_PATH} alt='portrait' fill sizes='100vw' className='object-cover' />
+          <div tw='flex items-center justify-center min-w-min h-80 mt-32 gap-28'>
+            <div tw='relative min-w-[288px] w-72 h-72 rounded-full overflow-hidden'>
+              <Image src={IMAGE_PATH} alt='portrait' fill sizes='100vw' tw='object-cover' />
             </div>
-            <div className='h-72 w-[480px] flex flex-col justify-between items-start'>
+            <div tw='h-72 w-[480px] flex flex-col justify-between items-start'>
               <div>
-                <h2 className='text-4xl text-gray-400'>Front-End React(Next.js)</h2>
-                <h2 className='text-4xl text-gray-400 mt-3'>Developer</h2>
+                <h2 tw='text-4xl text-gray-400'>Front-End React(Next.js)</h2>
+                <h2 tw='text-4xl text-gray-400 mt-3'>Developer</h2>
               </div>
-              <div className='text-gray-400'>
+              <div tw='text-gray-400'>
                 <p>
                   ポートフォリオをご覧いただきありがとうございます。都内でフロントエンドエンジニアをしています。
                 </p>
-                <p className=' mt-2'>名前: Tatsuya Sasaki</p>
+                <p tw=' mt-2'>名前: Tatsuya Sasaki</p>
                 <p>年齢: 26</p>
                 <p>場所: 東京</p>
               </div>
-              <div className='flex items-center justify-start gap-3'>
+              <div tw='flex items-center justify-start gap-3'>
                 <Link href={GITHUB_URL} target='_blank'>
                   <GitHubLogo />
                 </Link>
@@ -80,10 +77,10 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               </div>
             </div>
           </div>
-          <div className='flex items-center justify-center h-60'>
-            <p className='text-gray-400 text-lg font-bold'>Skill Stack</p>
-            <p className='ml-14'>|</p>
-            <div className='flex justify-between items-center gap-8 ml-14'>
+          <div tw='flex items-center justify-center h-60'>
+            <p tw='text-gray-400 text-lg font-bold'>Skill Stack</p>
+            <p tw='ml-14'>|</p>
+            <div tw='flex justify-between items-center gap-8 ml-14'>
               <span data-tooltip-id='skill-tooltip' data-tooltip-html={HTML5_TOOLTIP}>
                 <HTML5Logo />
               </span>
@@ -113,12 +110,12 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
         </section>
 
         <section>
-          <h1 className='text-5xl font-medium text-gray-500'>
+          <h1 tw='text-5xl font-medium text-gray-500'>
             Articles
-            <div className='w-96 mt-3 border-b-2' />
+            <div tw='w-96 mt-3 border-b-2' />
           </h1>
           {fourPosts.map((post, i) => (
-            <div key={i} className='mt-14 min-w-min'>
+            <div key={i} tw='mt-14 min-w-min'>
               <SinglePost
                 title={post.title}
                 description={post.description}
@@ -130,8 +127,8 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               />
             </div>
           ))}
-          <div className='mt-28 mb-6 w-full flex justify-end'>
-            <Link href='posts/pages/1' className='text-gray-500 hover:opacity-80 hover:underline'>
+          <div tw='mt-28 mb-6 w-full flex justify-end'>
+            <Link href='posts/pages/1' tw='text-gray-500 hover:opacity-80 hover:underline'>
               ...もっと見る
             </Link>
           </div>

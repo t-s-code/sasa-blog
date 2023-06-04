@@ -1,3 +1,4 @@
+import tw from 'twin.macro'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -18,7 +19,8 @@ const Menu = ({ className, isOpen }: MenuProps) => {
 
   return (
     <motion.div
-      className={'flex flex-col items-start justify-between w-48 py-3 bg-white ' + className}
+      tw='flex flex-col items-start justify-between w-48 py-3 bg-white'
+      className={className}
       variants={animations}
       animate={isOpen ? 'visible' : 'hidden'}
       transition={{
@@ -26,13 +28,13 @@ const Menu = ({ className, isOpen }: MenuProps) => {
         duration: MENU_MOVE_DURATION,
       }}
     >
-      <Link className='hover:text-gray-200' href={pagesPath.$url()}>
+      <Link tw='hover:text-gray-200' href={pagesPath.$url()}>
         Top
       </Link>
-      <Link className='mt-1 hover:text-gray-200' href={pagesPath.articles.$url()}>
+      <Link tw='mt-1 hover:text-gray-200' href={pagesPath.articles.$url()}>
         Articles
       </Link>
-      {/* <Link className='mt-1 hover:text-gray-200' href={pagesPath.projects.$url()}>
+      {/* <Link tw='mt-1 hover:text-gray-200' href={pagesPath.projects.$url()}>
         Projects
       </Link> */}
     </motion.div>
