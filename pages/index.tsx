@@ -33,8 +33,8 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
             About
             <div className='w-96 mt-3 border-b-2' />
           </h1>
-          <div className='flex items-center justify-center h-80 mt-32 gap-28'>
-            <div className='relative w-72 h-72 rounded-full overflow-hidden'>
+          <div className='flex items-center justify-center min-w-min h-80 mt-32 gap-28'>
+            <div className='relative min-w-[288px] w-72 h-72 rounded-full overflow-hidden'>
               <Image src={IMAGE_PATH} alt='portrait' fill sizes='100vw' className='object-cover' />
             </div>
             <div className='h-72 w-[480px] flex flex-col justify-between items-start'>
@@ -58,13 +58,13 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
               </div>
             </div>
           </div>
-          {/* <div className='flex items-center justify-center h-60'>
+          <div className='flex items-center justify-center h-60'>
             <p>Skill Stack</p>
             <p className='ml-8'>|</p>
             <div>
 
             </div>
-          </div> */}
+          </div>
         </section>
 
         <section className='mt-20'>
