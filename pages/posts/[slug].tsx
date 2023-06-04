@@ -10,7 +10,7 @@ type SlugPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const Post = ({ post }: SlugPageProps) => {
   return (
-    <section className='container lg:px-2 px-5 h-screen lg-2/5 mx-auto mt-20'>
+    <section className='container lg:px-2 px-5 h-full lg-2/5 mx-auto mt-20'>
       <h2 className='w-full text-2xl font-medium'>{post.metadata?.title}</h2>
       <div className='border-b-2 w-1/3 mt-1 border-black'></div>
       <span className='text-gray-500'>Posted at {post.metadata?.date}</span>
