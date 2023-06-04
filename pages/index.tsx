@@ -1,14 +1,32 @@
+import AzureLogo from '@/components/Icons/AzureLogo'
+import CSS3Logo from '@/components/Icons/CSS3Logo'
 import GitHubLogo from '@/components/Icons/GitHubLog'
-import Logo from '@/components/Icons/Logo'
+import HTML5Logo from '@/components/Icons/HTML5Logo'
+import JSLogo from '@/components/Icons/JSLogo'
+import NextLogo from '@/components/Icons/NextLogo'
+import ReactLogo from '@/components/Icons/ReactLogo'
+import TSLogo from '@/components/Icons/TSLogo'
+import TailwindCSSLogo from '@/components/Icons/TailwindCSSLogo'
 import TwitterLogo from '@/components/Icons/TwitterLogo'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
-import { NUMBER_OF_POSTS_PER_PAGE } from '@/constants/constants'
+import {
+  AZURE_TOOLTIP,
+  CSS3_TOOLTIP,
+  HTML5_TOOLTIP,
+  JS_TOOLTIP,
+  NEXT_TOOLTIP,
+  NUMBER_OF_POSTS_PER_PAGE,
+  REACT_TOOLTIP,
+  TAILWINDCSS_TOOLTIP,
+  TS_TOOLTIP,
+} from '@/constants/constants'
 import { MyPost, TagType, getAllTags, getPostsForTopPage } from '@/lib/notionAPI'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Tooltip } from 'react-tooltip'
 
 interface HomeProps {
   fourPosts: MyPost[]
@@ -59,10 +77,33 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
             </div>
           </div>
           <div className='flex items-center justify-center h-60'>
-            <p>Skill Stack</p>
-            <p className='ml-8'>|</p>
-            <div>
-
+            <p className='text-gray-400 text-lg font-bold'>Skill Stack</p>
+            <p className='ml-14'>|</p>
+            <div className='flex justify-between items-center gap-8 ml-14'>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={HTML5_TOOLTIP}>
+                <HTML5Logo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={CSS3_TOOLTIP}>
+                <CSS3Logo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={JS_TOOLTIP}>
+                <JSLogo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={TS_TOOLTIP}>
+                <TSLogo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={REACT_TOOLTIP}>
+                <ReactLogo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={NEXT_TOOLTIP}>
+                <NextLogo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={TAILWINDCSS_TOOLTIP}>
+                <TailwindCSSLogo />
+              </span>
+              <span data-tooltip-id='skill-tooltip' data-tooltip-html={AZURE_TOOLTIP}>
+                <AzureLogo />
+              </span>
             </div>
           </div>
         </section>
@@ -93,6 +134,26 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
           {/* <Tag tags={allTags} /> */}
         </section>
       </main>
+      <style>
+        {`.example-diff-arrow {
+          color: #fff;
+          background-color: rgb(55, 55, 55);
+        }
+
+        .example-arrow {
+          backgroundColor: rgb(222, 34, 72);
+        }`}
+      </style>
+      <Tooltip
+        id='skill-tooltip'
+        noArrow
+        style={{
+          backgroundColor: 'white',
+          color: '#535353',
+          borderWidth: '1px',
+          borderColor: '#65D2FE',
+        }}
+      />
     </div>
   )
 }

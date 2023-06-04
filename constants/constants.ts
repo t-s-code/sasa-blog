@@ -1,1 +1,9 @@
 export const NUMBER_OF_POSTS_PER_PAGE = 4
+export const HTML5_TOOLTIP = 'HTML5<br />実務経験：2年'
+export const CSS3_TOOLTIP = 'CSS3<br />実務経験：2年'
+export const JS_TOOLTIP = 'Javascript<br />実務経験：2年'
+export const TS_TOOLTIP = 'Typescript<br />実務経験：1年'
+export const REACT_TOOLTIP = 'React<br />実務経験：1年'
+export const NEXT_TOOLTIP = 'Next.js<br />実務経験：1年'
+export const TAILWINDCSS_TOOLTIP = 'TailwindCSS<br />実務経験：1年'
+export const AZURE_TOOLTIP = '<ul><li>Azure AD B2C 実務経験：1年</li></ul>'
