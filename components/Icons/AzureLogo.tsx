@@ -14,7 +14,6 @@ const AzureLogo = ({ className }: AzureLogoProps) => {
       xmlns='http://www.w3.org/2000/svg'
       preserveAspectRatio='xMidYMid'
     >
-      <title>Azure</title>
       <defs>
         <linearGradient
           x1='58.9717389%'
