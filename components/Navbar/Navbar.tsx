@@ -4,6 +4,7 @@ import Logo from '../Icons/Logo'
 import useSubscribeDomeEvent from '../hooks/useSubscribeDomeEvent'
 import Menu from './Menu'
 import SquareButton from '../Buttons/SquareButton'
+import { pagesPath } from '@/lib/$path'
 
 export const NAVBAR_GLOBAL_HEIGHT = '116px'
 
@@ -39,16 +40,22 @@ const Navbar = () => {
           onMouseOver={() => setIsLogoOpen(true)}
           onMouseLeave={() => setIsLogoOpen(false)}
           onClick={toggleMenuOpen}
-          className='cursor-pointer w-[42px]'
+          className='cursor-pointer w-14 h-10 flex items-center justify-center'
         >
           <Logo isOpen={isLogoOpen || isMenuOpen} />
         </div>
         <Menu isOpen={isMenuOpen} />
       </div>
       <div className='py-8'>
-        <SquareButton className=' mr-14' title='Technology' subTitle='テクノロジー' />
-        <SquareButton className='mr-14' title='Design' subTitle='デザイン' />
-        <SquareButton title='Society' subTitle='社会性' />
+        <Link href={pagesPath.articles.technology.pages._page('1').$url()}>
+          <SquareButton className=' mr-14' title='Technology' subTitle='テクノロジー' />
+        </Link>
+        <Link href={pagesPath.articles.design.pages._page('1').$url()}>
+          <SquareButton className='mr-14' title='Design' subTitle='デザイン' />
+        </Link>
+        <Link href={pagesPath.articles.society.pages._page('1').$url()}>
+          <SquareButton title='Society' subTitle='社会性' />
+        </Link>
       </div>
       <div className='w-48' />
     </nav>

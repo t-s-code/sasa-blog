@@ -191,3 +191,23 @@ export const getAllTags = async () => {
 
   return allTags
 }
+
+export const getPostsByGenreAndPage = async (genre: string, page: number) => {
+  const allPosts = await getAllPosts()
+  const posts = allPosts.filter((post) => post?.genre === genre)
+
+  const startIndex = (page - 1) * NUMBER_OF_POSTS_PER_PAGE
+  const endIndex = startIndex + NUMBER_OF_POSTS_PER_PAGE
+
+  return posts.slice(startIndex, endIndex)
+}
+
+export const getNumberOfPagesByGenre = async (genre: string) => {
+  const allPosts = await getAllPosts()
+  const posts = allPosts.filter((post) => post?.genre === genre)
+
+  return (
+    Math.floor(posts.length / NUMBER_OF_POSTS_PER_PAGE) +
+    (posts.length % NUMBER_OF_POSTS_PER_PAGE > 0 ? 1 : 0)
+  )
+}
