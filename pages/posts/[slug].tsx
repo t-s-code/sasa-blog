@@ -1,4 +1,4 @@
-import tw from 'twin.macro'
+import tw, { css } from 'twin.macro'
 import { TagType, getAllPosts, getSinglePost } from '@/lib/notionAPI'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
@@ -11,13 +11,52 @@ import Tag from '@/components/Tag/Tag'
 type SlugPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const Post = ({ post }: SlugPageProps) => {
+  const markdownStyle = [
+    css`
+      h1 {
+        ${tw`text-4xl font-bold mt-8 mb-3`}
+      }
+      h2 {
+        ${tw`text-3xl font-bold mt-8 mb-3`}
+      }
+      h3 {
+        ${tw`text-2xl font-bold mt-8 mb-3`}
+      }
+      h4 {
+        ${tw`text-xl font-bold mt-8 mb-3`}
+      }
+      h5 {
+        ${tw`text-lg font-bold mt-8 mb-3`}
+      }
+      ul > li {
+        &::before {
+          content: '・';
+        }
+      }
+      hr {
+        ${tw`my-10`}
+      }
+      pre {
+        ${tw`mb-6`}
+      }
+      img {
+        ${tw`mb-6`}
+      }
+      p {
+        ${tw`mt-6`}
+      }
+    `,
+  ]
+
   return (
     <section tw='container lg:px-2 px-5 h-full mx-auto mt-20'>
       <h2 tw='w-full text-2xl font-medium'>{post.metadata?.title}</h2>
-      <div tw='border-b-2 w-1/3 mt-1 border-black'></div>
-      <span tw='text-gray-500'>Posted at {post.metadata?.date}</span>
-      <Tag tags={post.metadata?.tags || []} search={false} />
-      <div tw='mt-10 font-medium'>
+      <div tw='border-b-2 w-1/3 mt-1 border-black' />
+      <div tw='mt-1'>
+        <span tw='text-gray-500'>Posted at {post.metadata?.date}</span>
+      </div>
+      <Tag tags={post.metadata?.tags || []} search={false} tw='mt-3' />
+      <div tw='mt-10 font-medium' css={[markdownStyle]}>
         <ReactMarkdown
           components={{
             code({ node, inline, className, children, ...props }) {

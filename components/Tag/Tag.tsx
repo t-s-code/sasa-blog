@@ -6,6 +6,7 @@ import React from 'react'
 interface TagProps {
   tags: TagType[]
   search?: boolean
+  className?: string
 }
 
 export const makeTagComponent = (i: number, tag: TagType) => {
@@ -37,9 +38,9 @@ export const makeTagComponent = (i: number, tag: TagType) => {
   }
 }
 
-const Tag = ({ tags, search = true }: TagProps) => {
+const Tag = ({ tags, search = true, className }: TagProps) => {
   return search ? (
-    <div tw='mx-4 mb-12'>
+    <div tw='mx-4 mb-12' className={className}>
       <section>
         <div tw='font-medium mb-4'>タグ検索</div>
         <div tw='flex flex-wrap gap-5'>
@@ -52,7 +53,7 @@ const Tag = ({ tags, search = true }: TagProps) => {
       </section>
     </div>
   ) : (
-    <section>
+    <section className={className}>
       <div tw='flex flex-wrap gap-5'>
         {tags.map((tag, i) => (
           <Link key={i} href={`/posts/tags/${tag.name}/pages/1`}>
