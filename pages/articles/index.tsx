@@ -1,3 +1,4 @@
+import tw from 'twin.macro'
 import SinglePost from '@/components/Post/SinglePost'
 import Tag from '@/components/Tag/Tag'
 import { NUMBER_OF_POSTS_PER_PAGE } from '@/constants/constants'
@@ -13,20 +14,20 @@ interface HomeProps {
 
 export default function ArticleIndex({ fourPosts, allTags }: HomeProps) {
   return (
-    <div className='h-full w-full mx-auto'>
+    <div tw='h-full w-full mx-auto'>
       <Head>
         <title>Sasa Blog</title>
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className='w-full px-56 mt-8'>
-        <h1 className='text-5xl font-medium text-gray-500'>
+      <main tw='w-full px-56 mt-8'>
+        <h1 tw='text-5xl font-medium text-gray-500'>
           Articles
-          <div className='w-96 mt-3 border-b-2' />
+          <div tw='w-96 mt-3 border-b-2' />
         </h1>
         {fourPosts.map((post, i) => (
-          <div key={i} className='mt-14 min-w-min'>
+          <div key={i} tw='mt-14 min-w-min'>
             <SinglePost
               title={post.title}
               description={post.description}
@@ -38,8 +39,8 @@ export default function ArticleIndex({ fourPosts, allTags }: HomeProps) {
             />
           </div>
         ))}
-        <div className='mt-12 mb-6 w-full flex justify-end'>
-          <Link href='posts/pages/1' className='text-gray-500 hover:opacity-80 hover:underline'>
+        <div tw='mt-12 mb-6 w-full flex justify-end'>
+          <Link href='posts/pages/1' tw='text-gray-500 hover:opacity-80 hover:underline'>
             ...もっと見る
           </Link>
         </div>
