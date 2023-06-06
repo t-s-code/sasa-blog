@@ -26,12 +26,12 @@ const BlogPageList = ({ postsByPage, numberOfPage, allTags }: BlogPageListProps)
       </Head>
 
       <main tw='w-full px-56 mt-8'>
-        <h1 tw='text-5xl font-medium text-gray-500'>
+        <h1 tw='text-5xl font-medium text-gray-500 mb-10'>
           Articles
           <div tw='w-96 mt-3 border-b-2' />
         </h1>
         {postsByPage.map((post, i) => (
-          <div key={i} tw='mt-14 min-w-min'>
+          <div key={i} tw='mt-24 min-w-min'>
             <SinglePost
               title={post.title}
               description={post.description}

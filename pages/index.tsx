@@ -110,12 +110,12 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
         </section>
 
         <section>
-          <h1 tw='text-5xl font-medium text-gray-500'>
+          <h1 tw='text-5xl font-medium text-gray-500 mb-10'>
             Articles
             <div tw='w-96 mt-3 border-b-2' />
           </h1>
           {fourPosts.map((post, i) => (
-            <div key={i} tw='mt-14 min-w-min'>
+            <div key={i} tw='mt-24 min-w-min'>
               <SinglePost
                 title={post.title}
                 description={post.description}
