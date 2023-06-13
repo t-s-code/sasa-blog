@@ -1,4 +1,4 @@
-import tw from 'twin.macro'
+import tw, { css } from 'twin.macro'
 import AzureLogo from '@/components/Icons/AzureLogo'
 import CSS3Logo from '@/components/Icons/CSS3Logo'
 import GitHubLogo from '@/components/Icons/GitHubLog'
@@ -53,8 +53,16 @@ export default function Home({ fourPosts, allTags }: HomeProps) {
             <div tw='w-96 mt-3 border-b-2' />
           </h1>
           <div tw='flex items-center justify-center min-w-min h-80 mt-32 gap-28'>
-            <div tw='relative min-w-[288px] w-72 h-72 rounded-full overflow-hidden'>
-              <Image src={IMAGE_PATH} alt='portrait' fill sizes='100vw' tw='object-cover' />
+            <div tw='flex items-center justify-center min-w-[320px] bg-white w-[320px] h-[320px] rounded-full border border-gray-50'>
+              <div tw='relative min-w-[288px] w-72 h-72 rounded-full overflow-hidden'>
+                <Image src={IMAGE_PATH} alt='portrait' fill sizes='100vw' tw='object-cover' />
+              </div>
+              <div
+                tw='absolute min-w-[320px] w-[320px] h-[320px] rounded-full'
+                css={css`
+                  box-shadow: inset 30px 30px 20px 5px rgba(0, 0, 0, 0.7);
+                `}
+              />
             </div>
             <div tw='h-72 w-[480px] flex flex-col justify-between items-start'>
               <div>

@@ -1,4 +1,4 @@
-import tw from 'twin.macro'
+import tw, { css } from 'twin.macro'
 import { MyPost } from '@/lib/notionAPI'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,13 +16,32 @@ const SinglePost = (props: SinglePostProps) => {
         href={`/posts/${slug}`}
         tw='w-[580px] h-[300px] min-w-min bg-gray-300 hover:opacity-90 hover:-translate-y-[3px] hover:-translate-x-0.5 hover:shadow-md transition-transform'
       >
-        <Image
-          src={thumbnail}
-          alt='thumbnail'
-          width={580}
-          height={300}
-          tw='object-cover min-w-[400px] h-[300px]'
-        />
+        {/* <div tw='flex items-center justify-center min-w-[620px] w-[620px] h-[340px] rounded-lg border border-gray-50'>
+          <div tw='relative min-w-[580px] w-[580px] h-[300px] rounded-lg overflow-hidden'>
+            <Image
+              src={thumbnail}
+              alt='thumbnail'
+              width={580}
+              height={300}
+              tw='object-cover min-w-[400px] h-[300px]'
+            />
+          </div>
+          <div
+            tw='absolute min-w-[620px] w-[620px] h-[340px] rounded-lg'
+            css={css`
+              box-shadow: inset 30px 30px 20px 5px rgba(0, 0, 0, 0.7);
+            `}
+          />
+        </div> */}
+        <div tw='overflow-hidden'>
+          <Image
+            src={thumbnail}
+            alt='thumbnail'
+            width={580}
+            height={300}
+            tw='object-cover min-w-[400px] h-[300px]'
+          />
+        </div>
       </Link>
       <div tw='w-[580px] ml-9 relative'>
         <div tw='flex flex-col gap-3'>
